@@ -11,18 +11,15 @@ import com.lcp.app.repository.StudyRepository;
 
 
 @RestController
+@RequestMapping("api/v1/studies")
 public class StudyController {
 	
 	@Autowired
 	StudyRepository studyRepository;
 	
-	@GetMapping(value = "/")
-	public String holaMundo() {
-		return "Hola mundo!!!!";
-	}
 	
 	// --------------------- METODO PARA TRAER TODOS LOS ESTUDIOS----------------
-	@GetMapping("/all")
+	@GetMapping
 	public List<Study> getAllStudies(){
 		return (List<Study>) studyRepository.findAll();
 	}

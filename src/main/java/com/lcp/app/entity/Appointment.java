@@ -36,7 +36,7 @@ private String phonenumber;
 private String urlAnalisis;
 @ManyToOne
 @JoinColumn(name="fk_user_id", nullable=true)
-private User user;
+private Customer customer;
 @ManyToMany
 @JoinTable(
 		  name = "appointment_has_studies", 

@@ -7,12 +7,12 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Customer {
 	
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY )
-@Column(name="user_id")
-private Long userID;
+@Column(name="customer_id")
+private Long customerID;
 @Column(name="name")
 private String name;
 @Column(name="lastname")
