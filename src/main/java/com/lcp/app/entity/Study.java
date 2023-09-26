@@ -16,13 +16,13 @@ private Long studyId;
 @Column(name="name")
 private String name;
 @Column(name="description")
-private String descrition;
+private String description;
 @Column(name="indications")
 private String indications;
 @Column(name="wait_time")
 private String waitTime;
 @Column(name="url")
-private String urlStudies;
+private String urlStudy;
 @ManyToOne
 @JoinColumn(name="fk_category_id", nullable=false)
 private Category category;
