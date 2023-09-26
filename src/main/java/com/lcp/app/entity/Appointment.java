@@ -3,6 +3,11 @@ package com.lcp.app.entity;
 
 import java.util.List;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,6 +15,7 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties(value= {"customer"})
 public class Appointment {
 	
 @Id
@@ -35,9 +41,10 @@ private String phonenumber;
 @Column(name="url_analysis_results")
 private String urlAnalisis;
 @ManyToOne
-@JoinColumn(name="fk_user_id", nullable=true)
+@JoinColumn(name="fk_customer_id", nullable=true)
 private Customer customer;
-@ManyToMany
+@ManyToMany 
+@Fetch(FetchMode.JOIN)
 @JoinTable(
 		  name = "appointment_has_studies", 
 		  joinColumns = @JoinColumn(name = "appointment_id"), 
