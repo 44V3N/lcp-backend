@@ -1,4 +1,4 @@
-package com.lcp.app.controll;
+package com.lcp.app.controller;
 
 import java.util.List;
 
