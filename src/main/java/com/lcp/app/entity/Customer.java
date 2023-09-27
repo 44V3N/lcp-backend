@@ -1,5 +1,11 @@
 package com.lcp.app.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -7,6 +13,7 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "customers")
 public class Customer {
 	
 @Id
@@ -32,5 +39,8 @@ private String password;
 @ManyToOne
 @JoinColumn(name="fk_role_id", nullable=false)
 private Role roles;
+@OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
+@JsonIgnore
+private List<Appointment> appointments = new ArrayList<>();
 
 }

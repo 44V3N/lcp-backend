@@ -44,11 +44,11 @@ public class CategoryServiceImpl implements CategoryService{
 		return saveCategory( existingCategory );
 	}
 	
-	@Override
-	public Category deleteCategory(Long id) {
-		Category existingCategory = getCategoryById(id);
-		categoryRepository.delete(existingCategory);
-		return existingCategory;
-	}
+//	@Override
+//	public Category deleteCategory(Long id) {
+//		Category existingCategory = getCategoryById(id);
+//		categoryRepository.delete(existingCategory);
+//		return existingCategory;
+//	}
 
 }

@@ -47,6 +47,7 @@ public class AppoinmentServiceImpl implements AppointmentService {
 		existingAppointment.setEmail(  appointment.getEmail()   );
 		existingAppointment.setPhonenumber(  appointment.getPhonenumber()   );
 		existingAppointment.setUrlAnalisis(  appointment.getUrlAnalisis()   );
+		existingAppointment.setStudies(  appointment.getStudies()   );
 		return saveAppointment( existingAppointment );
 	}
 
