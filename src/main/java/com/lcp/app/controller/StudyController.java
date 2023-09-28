@@ -37,7 +37,7 @@ public class StudyController {
 		return new ResponseEntity<>( studies, HttpStatus.OK );
 	}
 	
-	@GetMapping("/active")
+	@GetMapping("active")
 	public ResponseEntity< List<Study> > getActiveStudies(){
 		List<Study> activeStudies = studyService.getActiveStudies();
 		return new ResponseEntity<>( activeStudies, HttpStatus.OK );
@@ -49,9 +49,15 @@ public class StudyController {
 		return new ResponseEntity<>(existingStudy, HttpStatus.OK); // Status 200
 	}
 	
-	@DeleteMapping("{id}")
-	public ResponseEntity< Study > deleteStudy(@PathVariable Long id){
-		Study study = studyService.deleteStudy(id);
+	@PutMapping("disable/{id}")
+	public ResponseEntity< Study > disableStudy(@PathVariable Long id){
+		Study study = studyService.disableStudy(id);
+		return new ResponseEntity<>(study, HttpStatus.OK); // Status 200
+	}
+	
+	@PutMapping("enable/{id}")
+	public ResponseEntity< Study > enableStudy(@PathVariable Long id){
+		Study study = studyService.enableStudy(id);
 		return new ResponseEntity<>(study, HttpStatus.OK); // Status 200
 	}
 	

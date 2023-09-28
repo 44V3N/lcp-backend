@@ -54,10 +54,17 @@ public class StudyServiceImpl implements StudyService{
 	}
 
 	@Override
-	public Study deleteStudy(Long id) {
+	public Study disableStudy(Long id) {
 		Study existingStudy = getStudyById(id);
-		studyRepository.delete(existingStudy);
-		return existingStudy;
+		existingStudy.setActive(false);
+		return saveStudy( existingStudy );
+	}
+	
+	@Override
+	public Study enableStudy(Long id) {
+		Study existingStudy = getStudyById(id);
+		existingStudy.setActive(true);
+		return saveStudy( existingStudy );
 	}
 
 }

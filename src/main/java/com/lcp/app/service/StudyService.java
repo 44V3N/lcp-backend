@@ -15,6 +15,8 @@ public interface StudyService {
 	List<Study> getAllStudies();
 	
 	Study updateStudy(Study study, Long id);
+
+	Study disableStudy(Long id);
 	
-	Study deleteStudy(Long id);
+	Study enableStudy(Long id);
 }
