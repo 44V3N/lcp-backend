@@ -23,7 +23,7 @@ private Long studyId;
 private String name;
 @Column(name="indications", length=1000, nullable=true)
 private String indications;
-@Column(name="wait_time", length=50, nullable=true)
+@Column(name="wait_time", length=200, nullable=true)
 private String waitTime;
 @Column(name="active", columnDefinition="boolean default true", nullable=false)
 private boolean isActive;
