@@ -22,7 +22,7 @@ public class Appointment {
 @GeneratedValue(strategy=GenerationType.IDENTITY )
 @Column(name="apointment_id")
 private Long appointmentId;
-@Column(name="datetime", columnDefinition = "datetime", nullable=false)
+@Column(name="datetime", columnDefinition = "timestamp", nullable=false)
 private String dateTime;
 @Column(name="name", length=100, nullable=false)
 private String name;
