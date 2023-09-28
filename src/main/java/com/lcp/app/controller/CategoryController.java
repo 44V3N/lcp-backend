@@ -11,7 +11,7 @@ import com.lcp.app.entity.Category;
 import com.lcp.app.service.CategoryService;
 
 @RestController
-@RequestMapping("api/v1/category")
+@RequestMapping("api/v1/categories")
 public class CategoryController {
 
 	@Autowired
