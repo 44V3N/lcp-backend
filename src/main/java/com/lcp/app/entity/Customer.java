@@ -1,5 +1,6 @@
 package com.lcp.app.entity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +29,7 @@ private String lastName2;
 @Column(name="sex", length=10, nullable=false)
 private String sex;
 @Column(name="birthdate", columnDefinition = "date" , nullable=false)
-private String birthDate;
+private LocalDate birthDate;
 @Column(name="email", length=200, unique = true, nullable=false)
 private String email;
 @Column(name="phonenumber", length=15, nullable=false)

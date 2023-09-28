@@ -1,6 +1,8 @@
 package com.lcp.app.entity;
 
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.hibernate.annotations.Fetch;
@@ -23,7 +25,7 @@ public class Appointment {
 @Column(name="apointment_id")
 private Long appointmentId;
 @Column(name="datetime", columnDefinition = "timestamp", nullable=false)
-private String dateTime;
+private LocalDateTime dateTime;
 @Column(name="name", length=100, nullable=false)
 private String name;
 @Column(name="lastname", length=100, nullable=false)
@@ -33,7 +35,7 @@ private String lastName2;
 @Column(name="sex", length=10, nullable=false)
 private String sex;
 @Column(name="birthdate", columnDefinition = "date", nullable=false)
-private String birthDate;
+private LocalDate birthDate;
 @Column(name="email", length=200, nullable=false)
 private String email;
 @Column(name="phonenumber", length=15, nullable=false)
