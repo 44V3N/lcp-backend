@@ -37,6 +37,12 @@ public class StudyController {
 		return new ResponseEntity<>( studies, HttpStatus.OK );
 	}
 	
+	@GetMapping("/active")
+	public ResponseEntity< List<Study> > getActiveStudies(){
+		List<Study> activeStudies = studyService.getActiveStudies();
+		return new ResponseEntity<>( activeStudies, HttpStatus.OK );
+	}
+	
 	@PutMapping("{id}")
 	public ResponseEntity< Study > updateStudy(@PathVariable Long id,@RequestBody Study study){
 		Study existingStudy = studyService.updateStudy(study, id);

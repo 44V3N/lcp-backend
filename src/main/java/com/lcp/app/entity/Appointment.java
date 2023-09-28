@@ -22,23 +22,23 @@ public class Appointment {
 @GeneratedValue(strategy=GenerationType.IDENTITY )
 @Column(name="apointment_id")
 private Long appointmentId;
-@Column(name="datetime")
+@Column(name="datetime", columnDefinition = "datetime", nullable=false)
 private String dateTime;
-@Column(name="name")
+@Column(name="name", length=100, nullable=false)
 private String name;
-@Column(name="lastname")
+@Column(name="lastname", length=100, nullable=false)
 private String lastName;
-@Column(name="lastname2")
+@Column(name="lastname2", length=100, nullable=true)
 private String lastName2;
-@Column(name="sex")
+@Column(name="sex", length=10, nullable=false)
 private String sex;
-@Column(name="birthdate")
+@Column(name="birthdate", columnDefinition = "date", nullable=false)
 private String birthDate;
-@Column(name="email")
+@Column(name="email", length=200, nullable=false)
 private String email;
-@Column(name="phonenumber")
+@Column(name="phonenumber", length=15, nullable=false)
 private String phonenumber;
-@Column(name="url_analysis_results")
+@Column(name="url_analysis_results", length=200, nullable=true)
 private String urlAnalisis;
 @ManyToOne
 @JoinColumn(name="fk_customer_id", nullable=true)

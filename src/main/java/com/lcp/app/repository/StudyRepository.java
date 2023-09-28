@@ -9,7 +9,7 @@ import com.lcp.app.entity.Study;
 
 public interface StudyRepository extends CrudRepository< Study, Long>{
 	
-	List<Study> findByName(String name);
+	List<Study> findByIsActive(boolean active);
 
 	Study findById(long study_id);
 	

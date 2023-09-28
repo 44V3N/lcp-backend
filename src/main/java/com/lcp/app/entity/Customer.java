@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -36,6 +35,8 @@ private String email;
 private String phonenumber;
 @Column(name="password", length=64, nullable=false)
 private String password;
+@Column(name="active", columnDefinition="boolean default true", nullable=false)
+private boolean isActive;
 @ManyToOne
 @JoinColumn(name="fk_role_id", nullable=false)
 private Role roles;

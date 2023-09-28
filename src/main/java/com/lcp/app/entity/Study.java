@@ -19,16 +19,14 @@ public class Study {
 @GeneratedValue(strategy=GenerationType.IDENTITY )
 @Column(name="study_id")
 private Long studyId;
-@Column(name="name")
+@Column(name="name", length=100, nullable=false)
 private String name;
-@Column(name="description")
-private String description;
-@Column(name="indications")
+@Column(name="indications", length=1000, nullable=true)
 private String indications;
-@Column(name="wait_time")
+@Column(name="wait_time", length=50, nullable=true)
 private String waitTime;
-@Column(name="url")
-private String urlStudy;
+@Column(name="active", columnDefinition="boolean default true", nullable=false)
+private boolean isActive;
 @ManyToOne
 @JoinColumn(name="fk_category_id", nullable=false)
 private Category category;

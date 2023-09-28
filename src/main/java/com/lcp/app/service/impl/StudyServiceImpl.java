@@ -30,6 +30,14 @@ public class StudyServiceImpl implements StudyService{
 		return studyRepository.findById(id)
 				.orElseThrow( ()-> new IllegalStateException("Study does not exist with id " + id) );
 	}
+	
+    public List <Study> getActiveStudies() {
+        List <Study> activeStudies = studyRepository.findByIsActive(true);
+              if( activeStudies == null || activeStudies.isEmpty()) {
+                 throw new IllegalStateException("No active studies found");
+              }
+              return activeStudies;
+     }
 
 	@Override
 	public List<Study> getAllStudies() {
@@ -40,10 +48,8 @@ public class StudyServiceImpl implements StudyService{
 	public Study updateStudy(Study study, Long id) {
 		Study existingStudy = getStudyById(id);
 		existingStudy.setName(  study.getName()   );
-		existingStudy.setDescription(  study.getDescription()   );
 		existingStudy.setIndications(  study.getIndications()   );
 		existingStudy.setWaitTime(  study.getWaitTime()   );
-		existingStudy.setUrlStudy(  study.getUrlStudy()   );
 		return saveStudy( existingStudy );
 	}
 
