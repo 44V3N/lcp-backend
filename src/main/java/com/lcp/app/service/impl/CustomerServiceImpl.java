@@ -18,20 +18,28 @@ public class CustomerServiceImpl implements CustomerService{
     
     @Override
     public Customer createCustomer(Customer customer) {
+       Customer existingCustomer = getCustomerByEmail(customer.getEmail());
+       if(existingCustomer != null) {
+    	   throw new IllegalStateException("User with email" + customer.getEmail() + "already exists");
+       }
+       String encryptedPassword = bcrypt.encode(customer.getPassword());
+       customer.setPassword(encryptedPassword);
        return saveCustomer(customer);
-    
     }
 
     public Customer saveCustomer(Customer customer) {
-       String encryptedPassword = bcrypt.encode(customer.getPassword());
-       customer.setPassword(encryptedPassword);
        return customerRepository.save(customer);
     }
 
     @Override
     public Customer getCustomerById(Long id) {
        return customerRepository.findById(id)
-             .orElseThrow( ()-> new IllegalStateException("Customer does not exist with id " + id) );
+             .orElseThrow( ()-> new IllegalStateException("Customer does not exist with id: " + id) );
+    }
+    
+    @Override
+    public Customer getCustomerByEmail(String email) {
+       return customerRepository.findByEmail(email);
     }
     
     public List <Customer> getCustomerByName(String name) {
@@ -75,6 +83,16 @@ public class CustomerServiceImpl implements CustomerService{
        Customer existingCustomer = getCustomerById(id);
        customerRepository.delete(existingCustomer);
        return existingCustomer;
+    }
+    
+    public Customer loginCustomer(String email, String password) {
+        Customer existingCustomer = getCustomerByEmail(email);
+        if(existingCustomer != null) {
+     	   if(bcrypt.matches(password, existingCustomer.getPassword())) {
+     		   return existingCustomer;
+     	   }
+        }
+        throw new IllegalStateException("User or Password Incorrect");
     }
 
     BCryptPasswordEncoder bcrypt=new BCryptPasswordEncoder();

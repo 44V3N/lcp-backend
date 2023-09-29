@@ -25,6 +25,12 @@ public class CustomerController {
 		return new ResponseEntity<>(newCustomer, HttpStatus.CREATED); // Status 201
 	}
 	
+	@PostMapping("login")
+	public  ResponseEntity< Customer > loginCustomer(@RequestBody Customer customer) {
+		Customer existingCustomer = customerService.loginCustomer(customer.getEmail(), customer.getPassword());
+		return new ResponseEntity<>(existingCustomer, HttpStatus.OK); // Status 200
+	}
+	
 	@GetMapping("{id}")
 	public ResponseEntity< Customer > getCustomerById(@PathVariable Long id){
 		Customer customer = customerService.getCustomerById(id);
