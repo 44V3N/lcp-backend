@@ -8,6 +8,7 @@ D:\Users\JE\Downloads\Github\lcp-backend\src\main\java\com\lcp\app\service\Study
 D:\Users\JE\Downloads\Github\lcp-backend\src\main\java\com\lcp\app\service\CategoryService.java
 D:\Users\JE\Downloads\Github\lcp-backend\src\main\java\com\lcp\app\entity\Role.java
 D:\Users\JE\Downloads\Github\lcp-backend\src\main\java\com\lcp\app\repository\CustomerRepository.java
+D:\Users\JE\Downloads\Github\lcp-backend\src\main\java\com\lcp\app\security\WebSecurityConfig.java
 D:\Users\JE\Downloads\Github\lcp-backend\src\main\java\com\lcp\app\controller\CustomerController.java
 D:\Users\JE\Downloads\Github\lcp-backend\src\main\java\com\lcp\app\entity\Appointment.java
 D:\Users\JE\Downloads\Github\lcp-backend\src\main\java\com\lcp\app\repository\StudyRepository.java
