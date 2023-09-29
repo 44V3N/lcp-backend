@@ -16,16 +16,5 @@ public class AppApplication {
         SpringApplication.run(AppApplication.class, args);
     }
     
-	@Bean
-	CorsConfigurationSource corsConfigurationSource() {
-		CorsConfiguration configuration = new CorsConfiguration();
-		configuration.setAllowedOrigins( List.of("http://127.0.0.1:5173") );
-		configuration.setAllowedMethods( List.of("GET", "POST", "PUT", "DELETE") );
-		configuration.setAllowedHeaders( List.of("Authorization","Content-Type") );
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", configuration);
-		return source;
-		
-	}
     
 }
