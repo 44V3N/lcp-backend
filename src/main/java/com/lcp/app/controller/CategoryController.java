@@ -17,24 +17,28 @@ public class CategoryController {
 	@Autowired
 	CategoryService categoryService;
 	
+	@CrossOrigin(origins = "*")
 	@PostMapping
 	public  ResponseEntity< Category > createCategory(@RequestBody Category category) {
 		Category newCategory = categoryService.createCategory(category);
 		return new ResponseEntity<>(newCategory, HttpStatus.CREATED); // Status 201
 	}
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping("{id}")
 	public ResponseEntity< Category > getCategoryById(@PathVariable Long id){
 		Category category = categoryService.getCategoryById(id);
 		return new ResponseEntity<>(category, HttpStatus.OK); // Status 200
 	}
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping
 	public ResponseEntity< List<Category> > getAllCategories(){
 		List<Category> category = categoryService.getAllCategories();
 		return new ResponseEntity<>( category, HttpStatus.OK );
 	}
 	
+	@CrossOrigin(origins = "*")
 	@PutMapping("{id}")
 	public ResponseEntity< Category > updateCategory(@PathVariable Long id,@RequestBody Category category){
 		Category existingCategory = categoryService.updateCategory(category, id);

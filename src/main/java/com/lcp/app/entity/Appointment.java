@@ -49,6 +49,7 @@ private String phonenumber;
 private String urlAnalisis;
 @ManyToOne
 @JoinColumn(name="fk_customer_id", nullable=true)
+//@JsonIgnore
 private Customer customer;
 @ManyToMany
 @Fetch(FetchMode.JOIN)

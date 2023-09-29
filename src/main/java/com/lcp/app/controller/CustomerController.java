@@ -19,48 +19,56 @@ public class CustomerController {
 	@Autowired
 	CustomerService customerService;
 	
+	@CrossOrigin(origins = "*")
 	@PostMapping
 	public  ResponseEntity< Customer > createCustomer(@RequestBody Customer customer) {
 		Customer newCustomer = customerService.createCustomer(customer);
 		return new ResponseEntity<>(newCustomer, HttpStatus.CREATED); // Status 201
 	}
 	
+	@CrossOrigin(origins = "*")
 	@PostMapping("login")
 	public  ResponseEntity< Customer > loginCustomer(@RequestBody Customer customer) {
 		Customer existingCustomer = customerService.loginCustomer(customer.getEmail(), customer.getPassword());
 		return new ResponseEntity<>(existingCustomer, HttpStatus.OK); // Status 200
 	}
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping("{id}")
 	public ResponseEntity< Customer > getCustomerById(@PathVariable Long id){
 		Customer customer = customerService.getCustomerById(id);
 		return new ResponseEntity<>(customer, HttpStatus.OK); // Status 200
 	}
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping
 	public ResponseEntity< List<Customer> > getAllCustomers(){
 		List<Customer> customers = customerService.getAllCustomers();
 		return new ResponseEntity<>( customers, HttpStatus.OK );
 	}
 	
+	@CrossOrigin(origins = "*")
 	@PutMapping("{id}")
 	public ResponseEntity< Customer > updateCustomer(@PathVariable Long id,@RequestBody Customer customer){
 		Customer existingCustomer = customerService.updateCustomer(customer, id);
 		return new ResponseEntity<>(existingCustomer, HttpStatus.OK); // Status 200
 	}
 	
+	@CrossOrigin(origins = "*")
 	@DeleteMapping("{id}")
 	public ResponseEntity< Customer > deleteCustomer(@PathVariable Long id){
 		Customer customer = customerService.deleteCustomer(id);
 		return new ResponseEntity<>(customer, HttpStatus.OK); // Status 200
 	}
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping("name/{name}")
 	public ResponseEntity< List <Customer> > getCustomerByName(@PathVariable String name){
 		List <Customer> customer = customerService.getCustomerByName(name);
 		return new ResponseEntity<>(customer, HttpStatus.OK); // Status 200
 	}
 	
+	@CrossOrigin(origins = "*")
 	@GetMapping("lastname/{name}")
 	public ResponseEntity< List <Customer> > getCustomerByLastName(@PathVariable String name){
 		List <Customer> customer = customerService.getCustomerByLastName(name);
