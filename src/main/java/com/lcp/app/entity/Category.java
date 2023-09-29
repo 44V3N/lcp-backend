@@ -1,5 +1,7 @@
 package com.lcp.app.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,5 +20,6 @@ private Long categoryId;
 private String name;
 @Column(name="url", length=200, nullable=false)
 private String urlCategory;
-
+@OneToMany(mappedBy = "category")
+private List<Study> studies;
 }

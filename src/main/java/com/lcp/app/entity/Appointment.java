@@ -4,11 +4,14 @@ package com.lcp.app.entity;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.UuidGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,6 +27,8 @@ public class Appointment {
 @GeneratedValue(strategy=GenerationType.IDENTITY )
 @Column(name="apointment_id")
 private Long appointmentId;
+@Column(name="uuid", columnDefinition = "VARCHAR(255)", updatable = false, nullable = true)
+private String uuid;
 @Column(name="datetime", columnDefinition = "timestamp", nullable=false)
 private LocalDateTime dateTime;
 @Column(name="name", length=100, nullable=false)
@@ -44,7 +49,6 @@ private String phonenumber;
 private String urlAnalisis;
 @ManyToOne
 @JoinColumn(name="fk_customer_id", nullable=true)
-@JsonIgnore
 private Customer customer;
 @ManyToMany
 @Fetch(FetchMode.JOIN)

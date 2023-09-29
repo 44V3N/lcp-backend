@@ -10,6 +10,8 @@ public interface AppointmentService {
 	
 	Appointment getAppointmentById(Long id);
 	
+	Appointment getAppointmentByUuid(String uuid);
+	
 	List<Appointment> getAllAppointments();
 	
 	Appointment updateAppointment(Appointment appointment, Long id);

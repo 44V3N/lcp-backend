@@ -23,9 +23,15 @@ public class AppointmentController {
 		return new ResponseEntity<>(newAppointment, HttpStatus.CREATED); // Status 201
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("private/{id}")
 	public ResponseEntity< Appointment > getAppointmentById(@PathVariable Long id){
 		Appointment appointment = appointmentService.getAppointmentById(id);
+		return new ResponseEntity<>(appointment, HttpStatus.OK); // Status 200
+	}
+	
+	@GetMapping("{uuid}")
+	public ResponseEntity< Appointment > getAppointmentByUuid(@PathVariable String uuid){
+		Appointment appointment = appointmentService.getAppointmentByUuid(uuid);
 		return new ResponseEntity<>(appointment, HttpStatus.OK); // Status 200
 	}
 	

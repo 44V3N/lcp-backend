@@ -29,6 +29,7 @@ private String waitTime;
 private boolean isActive;
 @ManyToOne
 @JoinColumn(name="fk_category_id", nullable=false)
+@JsonIgnore
 private Category category;
 @ManyToMany(mappedBy = "studies")
 @JsonIgnore
