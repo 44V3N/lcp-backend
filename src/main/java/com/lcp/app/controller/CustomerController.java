@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+import com.lcp.app.entity.Appointment;
 import com.lcp.app.entity.Customer;
 import com.lcp.app.service.CustomerService;
 
@@ -29,6 +29,12 @@ public class CustomerController {
 	public ResponseEntity< Customer > getCustomerById(@PathVariable Long id){
 		Customer customer = customerService.getCustomerById(id);
 		return new ResponseEntity<>(customer, HttpStatus.OK); // Status 200
+	}
+	
+	@GetMapping("{id}/citas")
+	public ResponseEntity< List<Appointment> > getCustomerAppointments(@PathVariable Long id){
+		List<Appointment> appointments = customerService.getCustomerById(id).getAppointments();
+		return new ResponseEntity<>(appointments, HttpStatus.OK); // Status 200
 	}
 	
 	@GetMapping
