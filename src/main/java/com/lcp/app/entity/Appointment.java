@@ -11,6 +11,7 @@ import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.UuidGenerator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 
 import jakarta.persistence.*;
@@ -50,6 +51,7 @@ private String urlAnalisis;
 @ManyToOne
 @JoinColumn(name="fk_customer_id", nullable=true)
 //@JsonIgnore
+//@JsonIgnoreProperties({"appointments", "password"})
 private Customer customer;
 @ManyToMany
 @Fetch(FetchMode.JOIN)

@@ -18,4 +18,6 @@ public interface AppointmentService {
 	
 	Appointment deleteAppointment(Long id);
 	
+	List<Appointment> getAllAppointmentsByCustomerId(Long id);
+	
 }

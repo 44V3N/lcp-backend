@@ -74,5 +74,11 @@ public class AppoinmentServiceImpl implements AppointmentService {
 		appointmentRepository.delete(existingAppointment);
 		return existingAppointment;
 	}
+
+	@Override
+	public List<Appointment> getAllAppointmentsByCustomerId(Long id) {
+		return appointmentRepository.findAllByCustomerCustomerID(id)
+				.orElseThrow( ()-> new IllegalStateException("User has no appointments") );
+	}
 	
 }

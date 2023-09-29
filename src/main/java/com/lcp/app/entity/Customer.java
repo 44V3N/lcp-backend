@@ -42,8 +42,8 @@ private boolean isActive;
 @ManyToOne
 @JoinColumn(name="fk_role_id", nullable=false)
 private Role roles;
-@OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
-@JsonIgnore
-private List<Appointment> appointments = new ArrayList<>();
+//@OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
+//@JsonIgnore
+////private List<Appointment> appointments = new ArrayList<>();
 
 }
